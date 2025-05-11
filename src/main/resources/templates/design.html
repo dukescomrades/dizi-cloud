@@ -1,0 +1,135 @@
+<!-- tag::all[] -->
+<!-- tag::head[] -->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Design Dizi</title>
+    <link rel="stylesheet" th:href="@{/assets/css/styles.css}"/>
+</head>
+
+<body>
+<div style="text-align: center">
+    <h1 style="color: gray;font-weight: bolder;font-style: italic;">
+        Design Dizi ...
+    </h1>
+    <img th:src="@{/assets/images/dzorder.jpg}" width="300">
+    <img th:src="@{/assets/images/dz.jpg}" width="300">
+</div>
+
+
+<form method="POST" th:object="${dizi}">
+
+        <span class="validationError"
+              th:if="${#fields.hasErrors('ingredients')}"
+              th:errors="*{ingredients}">Ingredient Error</span>
+
+    <div class="diziname">
+        <h2>Name your dizi creation:</h2>
+        <input type="text" th:field="*{name}"/>
+        <span class="validationError"
+              th:if="${#fields.hasErrors('name')}"
+              th:errors="*{name}">Name Error</span>
+        <br/>
+    </div>
+
+    <div class="designdizitable">
+        <div class="ingredient-group" id="zarf">
+            <h3>Designate your zarf:</h3>
+            <div th:each="ingredient : ${zarf}">
+                <input th:field="*{ingredients}" type="checkbox"
+                       th:value="${ingredient.id}"/>
+                <span th:text="${ingredient.name}">INGREDIENT</span>&nbsp;
+            </div>
+        </div>
+
+        <div class="ingredient-group" id="goosht">
+            <h3>Pickup your goosht:</h3>
+            <div th:each="ingredient : ${goosht}">
+                <input th:field="*{ingredients}" type="checkbox"
+                       th:value="${ingredient.id}"/>
+                <span th:text="${ingredient.name}">INGREDIENT</span>&nbsp;
+            </div>
+        </div>
+
+
+        <div class="ingredient-group" id="sos">
+            <h3>Pickup your sos:</h3>
+            <div th:each="ingredient : ${sos}">
+                <input th:field="*{ingredients}" type="checkbox"
+                       th:value="${ingredient.id}"/>
+                <span th:text="${ingredient.name}">INGREDIENT</span>&nbsp;
+            </div>
+        </div>
+
+        <div class="ingredient-group" id="noon">
+            <h3>Pickup your noon:</h3>
+            <div th:each="ingredient : ${noon}">
+                <input th:field="*{ingredients}" type="checkbox"
+                       th:value="${ingredient.id}"/>
+                <span th:text="${ingredient.name}">INGREDIENT</span>&nbsp;
+            </div>
+        </div>
+
+        <div class="ingredient-group" id="charbi">
+            <h3>Pickup your charbi:</h3>
+            <div th:each="ingredient : ${charbi}">
+                <input th:field="*{ingredients}" type="checkbox"
+                       th:value="${ingredient.id}"/>
+                <span th:text="${ingredient.name}">INGREDIENT</span>&nbsp;
+            </div>
+        </div>
+
+        <div class="ingredient-group" id="sabzijat">
+            <h3>Pickup your sabzijat:</h3>
+            <div th:each="ingredient : ${sabzijat}">
+                <input th:field="*{ingredients}" type="checkbox"
+                       th:value="${ingredient.id}"/>
+                <span th:text="${ingredient.name}">INGREDIENT</span>&nbsp;
+            </div>
+        </div>
+
+        <div class="ingredient-group" id="hobobat">
+            <h3>Pickup your hobobat:</h3>
+            <div th:each="ingredient : ${hobobat}">
+                <input th:field="*{ingredients}" type="checkbox"
+                       th:value="${ingredient.id}"/>
+                <span th:text="${ingredient.name}">INGREDIENT</span>&nbsp;
+            </div>
+        </div>
+
+        <div class="ingredient-group" id="adviyehjat">
+            <h3>Pickup your adviyehjat:</h3>
+            <div th:each="ingredient : ${adviyehjat}">
+                <input th:field="*{ingredients}" type="checkbox"
+                       th:value="${ingredient.id}"/>
+                <span th:text="${ingredient.name}">INGREDIENT</span>&nbsp;
+            </div>
+        </div>
+
+        <div class="ingredient-group" id="dorchin">
+            <h3>Determine your dorchin:</h3>
+            <div th:each="ingredient : ${dorchin}">
+                <input th:field="*{ingredients}" type="checkbox"
+                       th:value="${ingredient.id}"/>
+                <span th:text="${ingredient.name}">INGREDIENT</span>&nbsp;
+            </div>
+        </div>
+
+        <div class="ingredient-group" id="noshidani">
+            <h3>Pickup your noshidani:</h3>
+            <div th:each="ingredient : ${noshidani}">
+                <input th:field="*{ingredients}" type="checkbox"
+                       th:value="${ingredient.id}"/>
+                <span th:text="${ingredient.name}">INGREDIENT</span>&nbsp;
+            </div>
+        </div>
+
+    </div>
+
+    <div class="dizisubmit">
+        <button class="dizisubmitbutton">Submit Your dizi</button>
+    </div>
+</form>
+</body>
+</html>
